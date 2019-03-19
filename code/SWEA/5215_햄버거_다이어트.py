@@ -9,4 +9,4 @@ for tc in range(1, T+1):
     tasty = [list(map(int, input().split())) for _ in range(N)]
     cost, value = 0, []
     for i in range(N):
-        if cost + tasty
+        if cost + tasty[i][]
