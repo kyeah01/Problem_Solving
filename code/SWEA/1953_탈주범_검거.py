@@ -1,18 +1,7 @@
 import sys
 sys.stdin = open('input.txt')
 
-def navi(i, j, time):
-    global cnt
-    if not time:
-        return
-    way = pipe[maps[i][j]]
-    maps[i][j] = 0
-    cnt += 1
-    for d in range(len(way)):
-        x = i+way[d][0]
-        y = j+way[d][1]
-        if 0<=x<N and 0<=y<M and maps[x][y] and [-way[d][0], -way[d][1]] in pipe[maps[x][y]]:
-            navi(x,y,time-1)
+
 
 pipe = {
     1 : [[-1,0],[0,1],[1,0],[0,-1]],
