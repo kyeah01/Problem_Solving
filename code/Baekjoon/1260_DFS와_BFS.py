@@ -14,10 +14,18 @@ while queue:
     BFS_visited += [queue.pop(0)]
     queue += [e for e in edg[BFS_visited[-1]] if e not in BFS_visited and e not in queue]
 
-print(BFS_visited)
 
 stack = [V]
 DFS_visited = []
 
-# while True:
-    
+while N > len(DFS_visited):
+    if edg[stack[-1]]:
+        if edg[stack[-1]][0] not in stack and edg[stack[-1]][0] not in DFS_visited:
+            stack += [edg[stack[-1]].pop(0)]
+        else:
+            edg[stack[-1]].pop(0)
+    else:
+        DFS_visited += [stack.pop()]
+
+print(*DFS_visited[::-1])
+print(*BFS_visited)
