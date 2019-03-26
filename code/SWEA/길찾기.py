@@ -57,7 +57,7 @@ def permutation(a):
                 nxt = value + abs(a[k][0]-now[0])+ abs(a[k][1]-now[1])
                 if nxt > minN:
                     a[i], a[k] = a[k], a[i]
-                    continue
+                    return
                 perm(n, k+1, nxt, a[k])
                 a[i], a[k] = a[k], a[i]
     perm(n, 0, 0, home)
