@@ -1,18 +1,29 @@
-def binary_finder(target_number, start, end):
-    if start == end:
-        return 0
-    if arr[(start+end)//2] == target_number:
-        return (start+end)//2
-    # 비교하는 값보다 타겟이 작다면, 프론트로 가야함.
-    elif arr[(start+end)//2] > target_number:
-        return binary_finder(target_number, start, (start+end)//2)
-    else:
-        return binary_finder(target_number, (start+end)//2, end)
+# def binary_search(s,e, target_number):
+#     mid = (s+e)//2
+#     if target_number == arr[mid]:
+#         return mid+1
+#     if s >= e:
+#         return 0
+#     if target_number < arr[mid]:
+#         return binary_search(s, mid, target_number)
+#     if target_number > arr[mid]:
+#         return binary_search(mid+1, e, target_number)
+
+def binary_search(s,e, target_number):
+    while s < e:
+        mid = (s+e)//2
+        if target_number == arr[mid]:
+            return mid+1
+        elif target_number < arr[mid]:
+            e = mid
+        else:
+            s = mid+1
+    return 0
 
 n = int(input())
 arr = list(map(int, input().split()))
 count = int(input())
-target_number = list(map(int, input().split()))
+target_numbers = list(map(int, input().split()))
 
-for i in range(count):
-    print(binary_finder(target_number[i], 0, n))
+for target_number in target_numbers:
+    print(binary_search(0, n, target_number))
