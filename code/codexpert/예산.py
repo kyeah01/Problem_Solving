@@ -21,9 +21,15 @@ def finder(arr):
             else:
                 sol = mid
                 s = mid+1
-        return sol
-    
+        return sol    
     return binarysearch(max_budget)
+
+# 그리디
+# def greedy(arr):
+#     global n
+#     arr.sort()
+#     def 
+
 
 # main
 n = int(input())
