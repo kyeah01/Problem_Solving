@@ -19,7 +19,6 @@ def tracker(mal, zol):
 
 direction = [(-2,-1), (-2,1), (-1,2), (1,2), (2,1), (2,-1), (1,-2), (-1,-2)]
 
-
 N, M = map(int, input().split())
 locate = list(map(int, input().split()))
 mal = (locate[1]-1, locate[0]-1)
