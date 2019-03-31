@@ -8,8 +8,7 @@ def solution(n):
             while 0<=x<n and 0<=y<n:
                 if board[x][y]:
                     return False
-                x += direction[d][0
-                ]
+                x += direction[d][0]
                 y += direction[d][1]
         return True
     
