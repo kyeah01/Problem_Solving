@@ -48,10 +48,10 @@ def solution(n):
             else:
                 if paint[i][j]:
                     cnt += 1
+                    color(paint[i][j],i,j)
                 if paint2[i][j]:
                     ccnt += 1
-                color(paint[i][j],i,j)
-                noncolor(i,j)
+                    noncolor(i,j)
     print(cnt, ccnt)
 
 
