@@ -3,8 +3,8 @@ def solution(n, desserts):
     
     i,j = 1,0
     # 대각선을 만들 수 있는 점들은 i가 1이상, n-2이하일 경우, j는 0이상, n-3이하일 경우.
-    # for i in range(1, n-1):
-    #     for j in range(n-2):
+    for i in range(1, n-1):
+        for j in range(n-2):
             
     # if 0<i<n-1 and 0<=j<n-2:
         # 이면 순회를 시작할 수 있다.
