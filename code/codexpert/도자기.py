@@ -1,23 +1,23 @@
 def solution(N,M,soil):
     result = []
     answer = [0]*M
-    def comb(k):
+    def comb(k, t):
         nonlocal result
-        if M == k:
-            print(answer)
-            if answer not in result:
+        if t == M:
+            # print(answer)
+            if answer not in result and answer[::-1] not in result:
                 result += [answer[:]]
             return
-        # answer[k] = soil[k]
-        for i in range(k+1,N):
-            # if k:
-            #     if soil[i] < answer[k-1]:
-            #         continue
+        for i in range(k, N):
+            # answer[k] = soil[i]
+            # comb(k+1)
+            # comb(k)
+            # powerset으로 한다고 가정하면,
             answer[k] = soil[i]
-            comb(k+1)
-    comb(0)
-    print(result)
+            comb(k+1, t+1)
 
+    comb(0, 0)
+    print(result)
 
 T = int(input())
 
