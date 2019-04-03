@@ -1,26 +1,19 @@
-def solution(n):
-    answer = []
-    i = 0
-    while i < n:
-        # print(answer)
-        if not answer:
-            answer += [boxs[i]]
-            i += 1
-        else:
-            if answer[-1] < boxs[i]:
-                answer += [boxs[i]]
-                i += 1
-            else:
-                answer.pop(0)
-                i += 1
-                
-    print(answer)
-
+def solution(k, a, a_last, b, b_last):
+    global maxN
+    if n == k:
+        maxN = max(maxN, a+b)
+        return 
+    if a_last > boxs[k]:
+        solution(k+1, a+boxs[k], boxs[k], b, b_last)
+    if b_last < boxs[k]:
+        solution(k+1, a, a_last, b+boxs[k], boxs[k])
+    solution(k+1, a, a_last, b, b_last)
 
 T = int(input())
-
 for tc in range(1, T+1):
     n = int(input())
     boxs = list(map(int, input().split()))
-    print(boxs)
-    solution(n)
+    # 초기 설정
+    maxN = 0
+    solution(0,0,1000,0,0)
+    print(maxN)

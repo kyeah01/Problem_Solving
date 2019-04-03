@@ -12,7 +12,7 @@ def dice2(k, s):
         return 
     for i in range(s, 7):
         result[k] = i
-        dice2(k+1, i+1)
+        dice2(k+1, i)
 
 def dice3(k):
     if k == n:
