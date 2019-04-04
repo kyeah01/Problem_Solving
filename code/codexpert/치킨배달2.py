@@ -1,49 +1,54 @@
 def solution():
-    def driver(x,y):
-        nonlocal result
-        temp = []
-        for i in range(n):
-            for j in range(n):
-                if maps[i][j] == 1:
-                    temp += [abs(x-i)+abs(y-j)]
-        result += [temp]
-        
     def chicken():
-        nonlocal house
-        cnt = 0
+        shop = []
+        house = []
         for i in range(n):
             for j in range(n):
                 if maps[i][j] == 2:
-                    cnt += 1
-                    driver(i,j)
+                    shop += [(i,j)]
                 if maps[i][j] == 1:
-                    house += 1
-        return cnt
+                    house += [(i,j)]
+        return shop, house
+    
+    def driver():
+        # result = []
+        # for i in range(len(shop)):
+        #     temp = []
+        #     for j in range(len(house)):
+        #         temp += [abs(shop[i][0]-house[j][0]) + abs(shop[i][1]-house[j][1])]
+        #     result += [temp]
+        # return result
+        return [[abs(shop[i][0]-house[j][0]) + abs(shop[i][1]-house[j][1]) for j in range(len(house))] for i in range(len(shop))]
     
     def choose(k, time):
         nonlocal fin, minN
-        if k == m:
-            if sum(choice) == m:
-                total = 0
-                for i in range(cnt):
+        if time == m:
+            # print(choice)
+            total = 0
+            for j in range(len(house)):
+                # print(result[i])
+                minn = 20*20
+                for i in range(len(shop)):
                     if choice[i]:
-                        minn = 0xffffff
-                        for j in range(house):
-                            minn = min(minn, result[i][j])
-                        total += minn
-                minN = min(minN, total)
+                        minn = min(minn, result[i][j])
+                total += minn
+            minN = min(minN, total)
             return
-        for i in range(k, cnt):
-            choice[i] = 1
-            choose(k+1, time+1)
-            choice[i] = 0        
+        if k == len(shop):
+            return
+        choice[k] = 1
+        choose(k+1, time+1)
+        choice[k] = 0
+        choose(k+1, time)
+
 
     result = []
-    house = 0
-    cnt = chicken()
-    choice = [0]*cnt
+    shop, house = chicken()
+    choice = [0]*len(shop)
     fin = []
+    result = driver()
     minN = 0xffffff
+    # print(minN)
     choose(0, 0)
     print(minN)
 

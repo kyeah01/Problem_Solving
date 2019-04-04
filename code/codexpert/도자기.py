@@ -1,12 +1,24 @@
+# def solution(k, s):
+#     global result
+#     if m == k:
+#         if arr not in result:
+#             result += [arr[:]]
+#         return
+#     for i in range(s, n):
+#         arr[k] = soil[i]
+#         solution(k+1, i+1)
+
 def solution(k, s):
-    global result
+    global sol
     if m == k:
-        if arr not in result:
-            result += [arr[:]]
+        sol += 1
         return
     for i in range(s, n):
-        arr[k] = soil[i]
-        solution(k+1, i+1)
+        if arr[k] != soil[i]:
+            arr[k] = soil[i]
+            solution(k+1, i+1)
+    arr[k] = 0
+
 
 T = int(input())
 for tc in range(T):
@@ -14,7 +26,7 @@ for tc in range(T):
     soil = sorted(list(map(int, input().split())))
     soil.sort()
     arr = [0]*m
-    result = []
+    sol= 0
     solution(0, 0)
-    print(len(result))
+    print(sol)
     # print(result)
