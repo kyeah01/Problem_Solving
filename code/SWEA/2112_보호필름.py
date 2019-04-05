@@ -8,7 +8,6 @@ def solution():
                 return
             temp = [film[i][:] for i in range(D)]
             for i in range(D):
-                # print(D-pwst.count(0))
                 if pwst[i] == 1:
                     temp[i] = [1 for _ in range(W)]
                 elif pwst[i] == 2:
