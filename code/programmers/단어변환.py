@@ -19,8 +19,3 @@ def solution(begin, target, words):
                 # 체크해봤더니 비슷하고, 이전에 썼던 것도 아님.
                 queue += [(word, n[1]+[word])]
     return 0
-                
-
-if __name__ == '__main__':
-    # print(solution('hit', 'cog', ['hot', 'dot', 'dog', 'lot', 'log', 'cog']))
-    print(solution('hit', 'cog', ['hot', 'dot', 'dog', 'lot', 'log']))
