@@ -1,3 +1,9 @@
+def turning(arr):
+    for (r,s,c) in arr:
+        start, end = (r-s, c-s), (r+s, c+s)
+        
+
+
 def perm(k, n, arr, visited):
     if k == n:
         print(arr)
