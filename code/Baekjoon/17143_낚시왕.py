@@ -20,10 +20,16 @@ def jaws():
         for j in range(C):
             if sea[i][j][2]:
                 # 거기 상어가 있어!!
+                # 움직이자!!
                 
 
 
 def solution():
+    total_weight = 0
+    for i in range(C):
+        total_weight += fishing(i)
+        jaws()
+    return total_weight
 
 
 R, C, M = map(int, input().split())
