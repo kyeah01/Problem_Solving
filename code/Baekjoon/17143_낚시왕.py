@@ -38,6 +38,7 @@ def move(speed, d, now):
     return (now[0], now[1], d)
 
 def jaws():
+<<<<<<< HEAD
     visited = {}
     for i in range(M):
         if shark_locations[i][4]:
@@ -50,11 +51,28 @@ def jaws():
                     visited[(nx, ny)] = i
                 else:
                     shark_locations[i] = (0,0,0,0,0)
+=======
+    for i in range(R):
+        for j in range(C):
+            if sea[i][j][2]:
+                # 거기 상어가 있어!!
+                # 움직이자!!
+                
+>>>>>>> c85107904de9ba55edf77b28fa3a34712a085a67
 
             else:
                 shark_locations[i] = (nx, ny, now[2], d, now[4])
                 visited[(nx, ny)] = i
 
+<<<<<<< HEAD
+=======
+def solution():
+    total_weight = 0
+    for i in range(C):
+        total_weight += fishing(i)
+        jaws()
+    return total_weight
+>>>>>>> c85107904de9ba55edf77b28fa3a34712a085a67
 
 def solution():
     total = 0
